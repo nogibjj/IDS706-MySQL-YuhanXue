@@ -25,7 +25,7 @@ The database is a partial database instance from the famous beers instance:
   - frequents: drinker, bar, times_a_week. This table indicates the bar each drinker visits, and how many times the drinker visits the bar each week.
   - serves: bar, beer, price. This table indicates which bar serves which beer at what price.
 
-The complex query is to find drinkers who frequent bars that serve Amstel more than 2 times a week. It returns two columns: drinker, times.
+The complex query is to find drinkers who frequent bars that serve Amstel more than 2 times a week. It returns two columns: drinker, times, and the results are sorted by the column "times".
 ```sql
 SELECT d.name, SUM(f.times_a_week) AS times
 FROM drinker d INNER JOIN frequents f ON d.name = f.drinker INNER JOIN serves s on f.bar = s.bar
